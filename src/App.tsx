@@ -1,25 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route, Link } from 'react-router-dom';
+import Products from './Views/Products/Products';
+import Privacy from './Views/Privacy/Privacy';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header>
+        <nav className='navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow'>
+          <div className='container'>
+            <Link to='/' className='navbar-brand'>
+              NobleCause.SavijSell.Ui
+            </Link>
+            <button
+              className='navbar-toggler'
+              type='button'
+              data-toggle='collapse'
+              data-target='.navbar-collapse'
+              aria-controls='navbarSupportedContent'
+              aria-expanded='false'
+              aria-label='Toggle navigation'
+            >
+              <span className='navbar-toggler-icon'></span>
+            </button>
+            <div className='navbar-collapse collapse d-sm-inline-flex justify-content-between'>
+              <ul className='navbar-nav flex-grow-1'>
+                <li className='nav-item'>
+                  <Link to='/' className='nav-link text-dark'>
+                    Products
+                  </Link>
+                </li>
+                <li className='nav-item'>
+                  <Link to='Privacy' className='nav-link text-dark'>
+                    Privacy
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
       </header>
-    </div>
+      <main role='main'>
+        <Routes>
+          <Route path='/' element={<Products />} />
+          <Route path='Privacy' element={<Privacy />} />
+        </Routes>
+      </main>
+      <footer className='border-top footer text-muted'>
+        <div className='container'>
+          &copy; 2021 - SavijSell -{' '}
+          <Link to='Privacy' className='nav-link text-dark displayInline p-0'>
+            Privacy
+          </Link>
+        </div>
+      </footer>
+    </>
   );
 }
 
