@@ -1,10 +1,13 @@
 import axios from 'axios';
 import { FormEvent, ReactElement, useState } from 'react';
 import './Login.css';
+import { TOKEN } from '../../Constants';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login(): ReactElement {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const loginUser = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -13,8 +16,9 @@ export default function Login(): ReactElement {
       password: password,
     });
     if (result && result.data) {
-      // localStorage.setItem('token', result.data.token);
+      localStorage.setItem(TOKEN, result.data.token);
       console.dir(result.data.token);
+      navigate('/');
     }
   };
 
