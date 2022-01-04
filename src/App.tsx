@@ -2,6 +2,7 @@ import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
 import Products from './Views/Products/Products';
 import Privacy from './Views/Privacy/Privacy';
+import Login from './Views/Login/Login';
 
 function App() {
   return (
@@ -35,6 +36,11 @@ function App() {
                     Privacy
                   </Link>
                 </li>
+                <li className='nav-item'>
+                  <Link to='Login' className='nav-link text-dark'>
+                    Login
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -44,6 +50,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Products />} />
           <Route path='Privacy' element={<Privacy />} />
+          <Route path='Login' element={<Login />} />
         </Routes>
       </main>
       <footer className='border-top footer text-muted'>
