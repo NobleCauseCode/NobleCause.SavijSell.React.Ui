@@ -3,6 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import Products from './Views/Products/Products';
 import Privacy from './Views/Privacy/Privacy';
 import Login from './Views/Login/Login';
+import { Signup } from './Views/Signup/Signup';
 
 function App() {
   return (
@@ -41,6 +42,11 @@ function App() {
                     Login
                   </Link>
                 </li>
+                <li className='nav-item'>
+                  <Link to='Signup' className='nav-link text-dark'>
+                    Signup
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -51,6 +57,7 @@ function App() {
           <Route path='/' element={<Products />} />
           <Route path='Privacy' element={<Privacy />} />
           <Route path='Login' element={<Login />} />
+          <Route path='Signup' element={<Signup />} />
         </Routes>
       </main>
       <footer className='border-top footer text-muted'>
